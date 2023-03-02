@@ -39,6 +39,28 @@ InternalError:
       example:
         code: 500
         message: "Internal server error"
+NotImplementedError:
+  description: "Endpoint not implemented."
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          code:
+            description: "Either specific error code in case of invalid request or http status code"
+            type: number
+            example: 501
+          message:
+            description: "Message describing error"
+            type: string
+          stacktraces:
+            description: "Optional stacktraces, sent when node is in debug mode"
+            type: array
+            items:
+              type: string
+      example:
+        code: 501
+        message: "Endpoint not implemented"
 CurrentlySyncing:
   description: "Beacon node is currently syncing, try again later."
   content:
@@ -83,6 +105,28 @@ NotFound:
       example:
         code: 404
         message: "Requested item not found"
+UnsupportedMediaType:
+  description: "The supplied content-type is not supported."
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          code:
+            description: "The media type supplied is unsupported, and the request has been rejected. This occurs when a HTTP request supplies a payload in a content-type that the service is not able to accept."
+            type: number
+            example: 415
+          message:
+            description: "Message describing error"
+            type: string
+          stacktraces:
+            description: "Optional stacktraces, sent when node is in debug mode"
+            type: array
+            items:
+              type: string
+      example:
+        code: 415
+        message: "Cannot read the supplied content type."
 ErrorMessage:
   type: object
   properties:

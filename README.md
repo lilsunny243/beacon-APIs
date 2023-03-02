@@ -9,7 +9,7 @@ API browser: [https://ethereum.github.io/beacon-APIs/](https://ethereum.github.i
 ## Outline
 
 This document outlines an application programming interface (API) which is exposed by a beacon node implementation
- which aims to facilitate [Phase 0](https://github.com/ethereum/consensus-specs#phase-0) of the Etheruem consensus layer.
+ which aims to facilitate [Phase 0](https://github.com/ethereum/consensus-specs#phase-0) of the Ethereum consensus layer.
 
 The API is a REST interface, accessed via HTTP. The API should not, unless protected by additional security layers, be exposed to the public Internet as the API includes multiple endpoints which could open your node to denial-of-service (DoS) attacks through endpoints triggering heavy processing.
  Currently, the only supported return data type is JSON.
@@ -84,5 +84,5 @@ https://www.npmjs.com/package/@chainsafe/eth2.0-api-wrapper
 In SwaggerUIBundle configuration (inside index.html file), add another entry in "urls" field (SwaggerUI will load first item as default).
 Entry should be in following format(replace `<tag>` with real tag name from step 1.):
 ```javascript
-         {url: "https://github.com/ethereum/beacon-APIs/releases/download/<tag>/beacon-node-oapi.yaml", name: "<tag>"},
+         {url: "./releases/<tag>/beacon-node-oapi.json", name: "<tag>"},
 ```
