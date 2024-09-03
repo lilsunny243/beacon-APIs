@@ -47,7 +47,7 @@ jobs:
           cp -r assets ./deploy
           cp index.html ./deploy
       - name: Restore releases
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: releases
           path: deploy/releases
